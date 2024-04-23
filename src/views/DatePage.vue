@@ -21,12 +21,13 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar color="primary">
         <ion-title>POV Globe</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <div class="example-content">
+        <img src="../assets/date.png" alt="date">
         <div class="buttons">
           <button @click="handleActionClick('Date')">Date</button>
           <button @click="handleActionClick('Time')">Time</button>
@@ -40,18 +41,33 @@
 <style scoped>
   .example-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    gap: 5rem;
     height: 100%;
   }
   .buttons{
     display: flex;
-    flex-direction: column;
     gap: 1rem;
   }
+  img{
+    width:400px;
+  }
   button{
-    width: 15rem;
+    width: 13rem;
+    height: 10rem;
     padding: 1rem;
     font-size: 1rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    color: rgb(85, 85, 245);
+    font-size: 1.2rem;
+    box-shadow: gray 0px 0px 5px;
+  }
+  button:active{
+    background-color: rgb(85, 85, 245);
+    color: white;
+    box-shadow: rgb(85, 85, 245) 0px 0px 5px;
   }
 </style>
