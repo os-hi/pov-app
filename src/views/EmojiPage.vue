@@ -17,12 +17,13 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar color="primary">
         <ion-title>POV Globe</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <div class="example-content">
+        <h1>Choose an emoji:</h1>
         <div class="buttons">
           <button @click="handleActionClick('❤️')">
             ❤️
@@ -51,19 +52,28 @@
 
 <style scoped>
   .example-content {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100%;
+    justify-content: space-evenly;
+    height: 90%;
   }
   .buttons{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 2rem;
   }
   button{
     border-radius: 1rem;
     padding: .5rem .1rem;
-    font-size: 3.5rem;
+    font-size: 5rem;
+    background-color: transparent;
+    box-shadow: gray 0px 0px 5px;
+  }
+  button:active{
+    background-color: rgb(85, 85, 245);
+  }
+  h1{
+    text-align: center;
   }
 </style>
