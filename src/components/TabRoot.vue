@@ -1,8 +1,20 @@
 <script setup lang="ts">
 import { IonPage, IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonLabel, IonIcon } from '@ionic/vue';
 
-import { playCircle, radio, library, search } from 'ionicons/icons';
+import { calendar, cloud, chatbox, happy, exit } from 'ionicons/icons';
+import router from '../router';
 
+  import { useCurrentUser } from 'vuefire'
+
+  const user = useCurrentUser()
+// if no user is logged in, redirect to login page
+  // if user is logged in, redirect to /app/text
+
+  if (!user) {
+    router.push(`/`);
+  }
+
+  
 </script>
 
 <template>
@@ -10,25 +22,29 @@ import { playCircle, radio, library, search } from 'ionicons/icons';
       <ion-tabs>
         <ion-router-outlet></ion-router-outlet>
         <ion-tab-bar slot="bottom">
-          <ion-tab-button tab="home" href="/home">
-            <ion-icon :icon="playCircle" />
-            <ion-label>Listen now</ion-label>
+          <ion-tab-button tab="app" href="/app/text">
+            <ion-icon :icon="chatbox" />
+            <ion-label>Message</ion-label>
           </ion-tab-button>
   
-          <ion-tab-button tab="radio" href="/radio">
-            <ion-icon :icon="radio" />
-            <ion-label>Radio</ion-label>
+          <ion-tab-button tab="emoji" href="/app/emoji">
+            <ion-icon :icon="happy" />
+            <ion-label>Emoji</ion-label>
           </ion-tab-button>
   
-          <ion-tab-button tab="library" href="/library">
-            <ion-icon :icon="library" />
-            <ion-label>Library</ion-label>
+          <ion-tab-button tab="date" href="/app/date">
+            <ion-icon :icon="calendar" />
+            <ion-label>Date</ion-label>
           </ion-tab-button>
   
-          <ion-tab-button tab="search" href="/search">
-            <ion-icon :icon="search" />
-            <ion-label>Search</ion-label>
+          <ion-tab-button tab="weather" href="/app/weather">
+            <ion-icon :icon="cloud" />
+            <ion-label>Weather</ion-label>
           </ion-tab-button>
+          <!-- <ion-tab-button tab="login" href="/">
+            <ion-icon :icon="exit" />
+            <ion-label>Logout</ion-label>
+          </ion-tab-button> -->
         </ion-tab-bar>
       </ion-tabs>
     </ion-page>
