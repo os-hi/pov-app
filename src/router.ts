@@ -5,34 +5,34 @@ import TabRoot from './components/TabRoot.vue';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home',
+    component: () => import('./views/LoginPage.vue'),
   },
   {
-    path: '/',
+    path: '/app',
     component: TabRoot,
     children: [
       {
-        path: '',
-        redirect: '/home',
-      },
-      {
-        path: 'home',
+        path: 'text',
         component: () => import('./views/HomePage.vue'),
       },
       {
-        path: 'radio',
-        component: () => import('./views/DatePage.vue'),
-      },
-      {
-        path: 'library',
+        path: 'emoji',
         component: () => import('./views/EmojiPage.vue'),
       },
       {
-        path: 'search',
+        path: 'date',
+        component: () => import('./views/DatePage.vue'),
+      },
+      {
+        path: 'weather',
         component: () => import('./views/WeatherPage.vue'),
       },
     ],
   },
+  {
+    path: '/:pathMatch(.*)*', 
+    redirect: '/' 
+  }
 ];
 
 const router = createRouter({
