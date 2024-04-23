@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { IonPage, IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonLabel, IonIcon } from '@ionic/vue';
 
-import { calendar, cloud, chatbox, happy, exit } from 'ionicons/icons';
+import { calendar, cloud, chatbox, happy } from 'ionicons/icons';
 import router from '../router';
 
   import { useCurrentUser } from 'vuefire'

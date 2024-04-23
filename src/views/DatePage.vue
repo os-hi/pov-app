@@ -43,20 +43,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    gap: 5rem;
+    justify-content: space-evenly;
     height: 100%;
   }
   .buttons{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
   img{
     width:400px;
   }
   button{
-    width: 13rem;
-    height: 10rem;
+    width: 10rem;
+    height: 9rem;
     padding: 1rem;
     font-size: 1rem;
     border-radius: 1rem;

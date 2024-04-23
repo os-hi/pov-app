@@ -55,9 +55,7 @@
         <div class="example-content">
           <img src="../assets/weather.png" alt="weather">
           <div class="buttons">
-            <button @click="fetchWeather('temp')">Temperature
-              
-            </button>
+            <button @click="fetchWeather('temp')">Temperature</button>
             <button @click="fetchWeather('humid')">Humidity</button>
           </div>
           
@@ -72,18 +70,18 @@
     padding: .2rem 1rem;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-evenly;
     flex-direction: column;
-    gap: 4rem;
     height: 100%;
   }
   .buttons{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
   button{
-    width: 13rem;
-    height: 10rem;
+    width: 10rem;
+    height: 9rem;
     padding: 1rem;
     font-size: 1rem;
     border-radius: 1rem;

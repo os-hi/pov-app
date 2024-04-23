@@ -23,6 +23,7 @@
     </ion-header>
     <ion-content>
       <div class="example-content">
+        <img src="../assets/emoji.webp" alt="emoji">
         <h1>Choose an emoji:</h1>
         <div class="buttons">
           <button @click="handleActionClick('❤️')">
@@ -56,11 +57,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 90%;
+    height: 100%;
+  }
+  img{
+    width: 20rem;
   }
   .buttons{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem 2rem;
   }
   button{
@@ -70,7 +74,7 @@
     background-color: transparent;
     box-shadow: gray 0px 0px 5px;
   }
-  button:active{
+  button:focus{
     background-color: rgb(85, 85, 245);
   }
   h1{

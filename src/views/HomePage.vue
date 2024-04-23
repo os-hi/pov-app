@@ -12,10 +12,12 @@
   }
 
   const handleSubmit = () => {
+    if(text.value != ""){
+      set(databaseRef(db, 'devices/' + "device1"), {
+        display: text.value
+      });
+    }
 
-    set(databaseRef(db, 'devices/' + "device1"), {
-      display: text.value
-    });
   //   function writeUserData(userId, name, email, imageUrl) {
   // const db = getDatabase();
   // set(ref(db, 'users/' + userId), {
@@ -33,16 +35,19 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar color="primary">
         <ion-title>POV Globe</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <div class="text-container">
+        <img src="../assets/message.webp" alt="message">
           <ion-item class="ion-text-wrap">
-              <ion-textarea class="textarea" label="10 letters only" :counter="true" :maxlength="10" :counter-formatter="customFormatter" label-placement="floating" fill="outline" placeholder="Type something here" v-model="text"></ion-textarea>
+              <ion-textarea class="textarea" label="what's on your mind" :counter="true" :maxlength="10" :counter-formatter="customFormatter" label-placement="floating" fill="outline" placeholder="Type something here" v-model="text"></ion-textarea>
           </ion-item>
-          <button @click="handleSubmit">Send</button>
+          <div class="buttons">
+            <IonButton @click="handleSubmit" shape="round" size="large" expand="block">Send</IonButton>
+          </div>
       </div>
         
     </ion-content>
@@ -52,24 +57,27 @@
 
 
 <style scoped>
+  .header-background {
+    background-color: blue;
+  }
   .text-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 7rem;
+    justify-content: space-evenly;
     height: 100%;
   }
-  .ion-text-wrap {
-    width: 30rem;
+  img{
+    width: 20rem;
   }
+  .ion-text-wrap{
+    width: 90%;
+  }
+
   .textarea {
     padding: 1rem;
   }
-  button{
-    padding: .8rem 5rem;
-    border-radius: 1rem;
-    background: #9A74D9;
-    color: white;
+  .buttons{
+    width: 16rem;
   }
 </style>
