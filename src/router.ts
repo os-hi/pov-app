@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import TabRoot from './components/TabRoot.vue';
+// import TabRoot from './components/TabRoot.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/app',
-    component: TabRoot,
+    component:() => import('./components/TabRoot.vue'),
     children: [
       {
         path: 'text',
