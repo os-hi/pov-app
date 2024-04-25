@@ -17,11 +17,11 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar color="primary">
+      <ion-toolbar color="dark">
         <ion-title>POV Globe</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content color="dark">
       <div class="example-content">
         <img src="../assets/emoji.webp" alt="emoji">
         <h1>Choose an emoji:</h1>
@@ -75,7 +75,7 @@
     box-shadow: gray 0px 0px 5px;
   }
   button:focus{
-    background-color: rgb(85, 85, 245);
+    background-color: #DD771F;
   }
   h1{
     text-align: center;

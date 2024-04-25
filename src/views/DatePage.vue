@@ -20,12 +20,12 @@
 
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar color="primary">
+    <ion-header >
+      <ion-toolbar color="dark">
         <ion-title>POV Globe</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content color="dark">
       <div class="example-content">
         <img src="../assets/date.png" alt="date">
         <div class="buttons">
@@ -61,12 +61,17 @@
     font-size: 1rem;
     border-radius: 1rem;
     background-color: transparent;
-    color: rgb(85, 85, 245);
+    color: #DD771F;
     font-size: 1.2rem;
     box-shadow: gray 0px 0px 5px;
   }
   button:active{
-    background-color: rgb(85, 85, 245);
+    background-color: #DD771F;
+    color: white;
+    box-shadow: rgb(85, 85, 245) 0px 0px 5px;
+  }
+  button:focus{
+    background-color: #DD771F;
     color: white;
     box-shadow: rgb(85, 85, 245) 0px 0px 5px;
   }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonTextarea, IonButton  } from '@ionic/vue';
+  import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonTextarea  } from '@ionic/vue';
   import { ref } from 'vue';
   import { ref as databaseRef, set } from 'firebase/database'
   import {db} from '../database/firebase'
@@ -35,19 +35,17 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar color="primary">
+      <ion-toolbar color="dark">
         <ion-title>POV Globe</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content color="dark">
       <div class="text-container">
         <img src="../assets/message.webp" alt="message">
-          <ion-item class="ion-text-wrap">
+          <ion-item class="ion-text-wrap" color="dark">
               <ion-textarea class="textarea" label="what's on your mind" :counter="true" :maxlength="10" :counter-formatter="customFormatter" label-placement="floating" fill="outline" placeholder="Type something here" v-model="text"></ion-textarea>
           </ion-item>
-          <div class="buttons">
-            <IonButton @click="handleSubmit" shape="round" size="large" expand="block">Send</IonButton>
-          </div>
+          <button @click="handleSubmit">Send</button>
       </div>
         
     </ion-content>
@@ -77,7 +75,12 @@
   .textarea {
     padding: 1rem;
   }
-  .buttons{
+  button{
+    border-radius: 1rem;
+    padding: 1rem 4rem;
     width: 16rem;
+    color: white;
+    font-size: 1rem;
+    background-color: #DD771F;
   }
 </style>

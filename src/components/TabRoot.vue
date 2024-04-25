@@ -18,25 +18,25 @@ import router from '../router';
 </script>
 
 <template>
-    <ion-page>
-      <ion-tabs>
-        <ion-router-outlet></ion-router-outlet>
-        <ion-tab-bar slot="bottom">
+  <ion-page>
+    <ion-tabs>
+      <ion-router-outlet></ion-router-outlet>
+        <ion-tab-bar slot="bottom" color="dark">
           <ion-tab-button tab="app" href="/app/text">
-            <ion-icon :icon="chatbox" />
+            <ion-icon :icon="chatbox"/>
             <ion-label>Message</ion-label>
           </ion-tab-button>
-  
+
           <ion-tab-button tab="emoji" href="/app/emoji">
             <ion-icon :icon="happy" />
             <ion-label>Emoji</ion-label>
           </ion-tab-button>
-  
+
           <ion-tab-button tab="date" href="/app/date">
             <ion-icon :icon="calendar" />
             <ion-label>Date</ion-label>
           </ion-tab-button>
-  
+
           <ion-tab-button tab="weather" href="/app/weather">
             <ion-icon :icon="cloud" />
             <ion-label>Weather</ion-label>
@@ -46,6 +46,18 @@ import router from '../router';
             <ion-label>Logout</ion-label>
           </ion-tab-button> -->
         </ion-tab-bar>
-      </ion-tabs>
-    </ion-page>
-  </template>
+    </ion-tabs>
+  </ion-page>
+</template>
+<style scoped>
+ ion-tab-button:focus {
+  color: #DD771F;
+ }
+ ion-tab-button:hover {
+  color: #DD771F;
+ }
+ ion-tab-button:active {
+  color: #DD771F;
+ }
+
+</style>
