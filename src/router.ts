@@ -1,15 +1,21 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-// import TabRoot from './components/TabRoot.vue';
+import LoginPage from './views/LoginPage.vue';
+import RegisterPage from './views/RegisterPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
+
   {
     path: '/',
-    component: () => import('./views/LoginPage.vue'),
+    redirect: '/login',
+  },
+  {
+    path: '/login',
+    component: LoginPage,
   },
   {
     path: '/app',
-    component:() => import('./components/TabRoot.vue'),
+    component: () => import('./components/TabRoot.vue'),
     children: [
       {
         path: 'text',
@@ -30,14 +36,19 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
+    path: '/register',
+    component: RegisterPage,
+  },
+
+  {
     path: '/:pathMatch(.*)*', 
-    redirect: '/' 
+    redirect: '/login', 
   }
 ];
 
 const router = createRouter({
   // Use: createWebHistory(process.env.BASE_URL) in your app
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
