@@ -4,6 +4,7 @@ import LoginPage from './views/LoginPage.vue';
 import RegisterPage from './views/RegisterPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
+
   {
     path: '/',
     redirect: '/login',
@@ -32,15 +33,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'weather',
         component: () => import('./views/WeatherPage.vue'),
       },
-      {
-        path: 'profile',
-        component: () => import('./views/ProfilePage.vue'),
-      },
     ],
-  },
-  {
-    path: '/logout',
-    component: () => import('./views/LoginPage.vue'),
   },
   {
     path: '/register',
@@ -54,8 +47,8 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  // Use createWebHistory(process.env.BASE_URL) in your app
-  history: createWebHistory('/'),
+  // Use: createWebHistory(process.env.BASE_URL) in your app
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
