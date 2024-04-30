@@ -6,9 +6,7 @@ import {
   IonToolbar,
   IonButtons,
   IonMenuButton,
-  IonButton,
   IonContent,
-  IonList,
   IonItem,
   IonTitle,
   IonRow,
@@ -16,36 +14,9 @@ import {
   IonInput,
 } from "@ionic/vue";
 
-//   const username = ref("");
-//   const password = ref("");
-//   const submitted = ref(false);
 
-//   const usernameValid = true;
-//   const passwordValid = true;
 
-//   const showToast = ref(false);
-//   const toastMessage = ref("");
-
-//   const canSubmit = computed(
-//     () => username.value.trim() !== "" && password.value.trim() !== ""
-//   );
-
-//   const onLogin = () => {
-//     submitted.value = true;
-//     if (usernameValid && passwordValid) {
-//     }
-//   };
-
-//   const onSignup = () => {
-//     toastMessage.value = "Successfully logged in!";
-
-//     showToast.value = true;
-
-//     username.value = "";
-//     password.value = "";
-//   };
-
-import { Ref, ref } from "vue";
+import { Ref, ref, watch } from "vue";
 // import { RouterLink } from "vue-router";
 import router from "../router";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -62,9 +33,11 @@ const password = ref("");
 // if no user is logged in, redirect to login page
   // if user is logged in, redirect to /app/text
 
-  if (user) {
+  watch(user, (newValue) => {
+  if (newValue) {
     router.push(`/app/text`);
   }
+});
 // const isIncorrect = ref(false);
 
 // const showPassword = ref(false);
@@ -92,18 +65,17 @@ const handleSubmit = () => {
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar color="dark">
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>Login</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
+    <ion-content class="ion-padding" color="dark">
       <div class="ion-content">
-        <form novalidate @submit.prevent="handleSubmit">
-          <ion-list>
-            <ion-item>
+        <form novalidate @submit.prevent="handleSubmit" >
+            <ion-item color="dark">
               <ion-input
                 label="Email"
                 labelPlacement="stacked"
@@ -116,32 +88,22 @@ const handleSubmit = () => {
               ></ion-input>
             </ion-item>
 
-            <ion-item>
+            <ion-item color="dark">
               <ion-input
                 labelPlacement="stacked"
                 label="Password"
                 v-model="password"
                 name="password"
-                type="text"
+                type="password"
                 required
               ></ion-input>
             </ion-item>
-          </ion-list>
-
           <ion-row responsive-sm class="ion-padding">
             <ion-col>
-              <ion-button type="submit" expand="block">Login</ion-button>
+              <button type="submit" expand="block">Login</button>
             </ion-col>
-            <!-- <ion-col>
-                <ion-button
-                    :disabled="!canSubmit"
-                    @click="onSignup"
-                    color="light"
-                    expand="block"
-                    >Signup</ion-button
-                >
-                </ion-col> -->
           </ion-row>
+          <div class="account">Already have an account? <router-link to="/register">Register</router-link></div>
         </form>
         <!-- <ion-toast
           :is-open="showToast"
@@ -154,6 +116,21 @@ const handleSubmit = () => {
 </template>
 
 <style scoped>
+form{
+    padding: 4rem 2rem;
+    width: 24rem;
+    border-radius: 15px;
+    box-shadow: rgb(249, 171, 111) 0px 0px 5px;
+}
+.account{
+    text-align: center;
+}
+button{
+  width: 16rem;
+  padding: .8rem 2rem;
+  border-radius: 1rem;
+  background-color: #DD771F;
+}
 .ion-content {
   display: grid;
   align-items: center;

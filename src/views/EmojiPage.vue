@@ -18,7 +18,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar color="dark">
-        <ion-title>POV Globe</ion-title>
+        <ion-title>LED Globe</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content color="dark">

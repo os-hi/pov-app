@@ -4,6 +4,19 @@
   import { ref as databaseRef, set } from 'firebase/database'
   import {db} from '../database/firebase'
 
+  // import router from '../router';
+
+  // import { useCurrentUser } from 'vuefire'
+
+  // const user = useCurrentUser()
+// if no user is logged in, redirect to login page
+  // if user is logged in, redirect to /app/text
+
+  // if (user.value) {
+  //   console.log(user.value.email);
+  //   router.push(`/login`);
+  // }
+
   const text = ref('');
   // const numbersRef = databaseRef(db, 'numbers')
 
@@ -36,7 +49,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar color="dark">
-        <ion-title>POV Globe</ion-title>
+        <ion-title>LED Globe</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content color="dark">

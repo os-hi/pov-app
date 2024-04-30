@@ -6,9 +6,7 @@ import {
   IonToolbar,
   IonButtons,
   IonMenuButton,
-  IonButton,
   IonContent,
-  IonList,
   IonItem,
   IonTitle,
   IonRow,
@@ -54,18 +52,17 @@ import {
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar color="dark">
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Login</ion-title>
+        <ion-title>Register</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
+    <ion-content class="ion-padding" color="dark">
       <div class="ion-content">
         <form novalidate @submit.prevent="handleSubmit">
-          <ion-list>
-            <ion-item>
+            <ion-item color="dark">
               <ion-input
                 label="Email"
                 labelPlacement="stacked"
@@ -78,31 +75,30 @@ import {
               ></ion-input>
             </ion-item>
 
-            <ion-item>
+            <ion-item color="dark">
               <ion-input
                 labelPlacement="stacked"
                 label="Password"
                 v-model="password"
                 name="password"
-                type="text"
+                type="password"
                 required
               ></ion-input>
             </ion-item>
-            <ion-item>
+            <ion-item color="dark">
               <ion-input
                 labelPlacement="stacked"
                 label="Confirm Password"
                 v-model="confirmPassword"
                 name="confirmPassword"
-                type="text"
+                type="password"
                 required
               ></ion-input>
             </ion-item>
-          </ion-list>
 
           <ion-row responsive-sm class="ion-padding">
             <ion-col>
-              <ion-button type="submit" expand="block">Login</ion-button>
+                <button type="submit">Register</button>
             </ion-col>
             <!-- <ion-col>
                 <ion-button
@@ -114,6 +110,7 @@ import {
                 >
                 </ion-col> -->
           </ion-row>
+        <div class="account">Already have an account? <router-link to="/login">Login</router-link></div>
         </form>
         <!-- <ion-toast
           :is-open="showToast"
@@ -126,13 +123,27 @@ import {
 </template>
 
 <style scoped>
+form{
+    padding: 4rem 2rem;
+    width: 24rem;
+    border-radius: 15px;
+    box-shadow: rgb(249, 171, 111) 0px 0px 5px;
+}
+.account{
+    text-align: center;
+}
 .ion-content {
   display: grid;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
-
+button{
+  width: 16rem;
+  padding: .8rem 2rem;
+  border-radius: 1rem;
+  background-color: #DD771F;
+}
 .list {
   margin-bottom: 0;
 }
