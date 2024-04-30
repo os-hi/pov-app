@@ -9,11 +9,13 @@
   const userLogout: Auth | null = useFirebaseAuth()
   const user = useCurrentUser();
   const email = user.value?.email;
-
-  const trimmedEmail = email.substring(0, email.indexOf("@gmail.com"));
-
+  
+  const trimmedEmail = email?.substring(0, email.indexOf("@gmail.com"));
+  
   const handleLogout = async () => {
     try {
+        if(!userLogout) return
+        
         await signOut(userLogout).then(() => {
             router.push('/login')
             

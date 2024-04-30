@@ -33,6 +33,10 @@ const routes: Array<RouteRecordRaw> = [
         path: 'weather',
         component: () => import('./views/WeatherPage.vue'),
       },
+      {
+        path: 'profile',
+        component: () => import('./views/ProfilePage.vue'),
+      },
     ],
   },
   {
