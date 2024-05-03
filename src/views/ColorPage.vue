@@ -1,12 +1,18 @@
 <script setup lang="ts">
   import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage } from '@ionic/vue';
-  import { ref as databaseRef, set } from 'firebase/database'
+  import { ref as databaseRef, set, get } from 'firebase/database'
   import {db} from '../database/firebase'
 
-  const handleActionClick = (color: string) => {
-      set(databaseRef(db, 'devices/' + "device1"), {
-        display: color
-    });
+  const handleActionClick = async  (color: string) => {
+     // Get current data from database
+     const snapshot = await get(databaseRef(db, 'devices/' + "device1"));
+      const data = snapshot.val();
+      
+      // Merge existing data with updated color
+      const newData = { ...data, color };
+      
+      // Set merged data to database
+      set(databaseRef(db, 'devices/' + "device1"), newData);
   }
 </script>
 
@@ -41,6 +47,9 @@
 </template>
 
 <style scoped>
+  ion-buttons{
+    color: #DD771F;
+  }
   img {
     width: 200px;
     height: 300px;
