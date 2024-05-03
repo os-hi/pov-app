@@ -9,7 +9,7 @@ import {
   IonIcon,
 } from "@ionic/vue";
 
-import { calendar, cloud, chatbox, happy, person  } from "ionicons/icons";
+import { calendar, cloud, chatbox, happy, colorPalette  } from "ionicons/icons";
 import router from "../router";
 
 import { useCurrentUser } from "vuefire";
@@ -48,9 +48,9 @@ if (!user.value?.email) {
           <ion-icon :icon="cloud" />
           <ion-label>Weather</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="profile" href="/app/profile">
-            <ion-icon :icon="person" />
-            <ion-label>Profile</ion-label>
+        <ion-tab-button tab="color" href="/app/color">
+            <ion-icon :icon="colorPalette" />
+            <ion-label>Color</ion-label>
           </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>

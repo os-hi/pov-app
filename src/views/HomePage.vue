@@ -46,9 +46,12 @@
 
 
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar color="dark">
+  <ion-page id="main-content">
+    <ion-header >
+      <ion-toolbar color="dark" >
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
         <ion-title>LED Globe</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -68,6 +71,9 @@
 
 
 <style scoped>
+  ion-buttons{
+    color: #DD771F
+  }
   .header-background {
     background-color: blue;
   }
@@ -95,5 +101,9 @@
     color: white;
     font-size: 1rem;
     background-color: #DD771F;
+  }
+ .logout{
+    background-color: transparent;
+    width: auto;
   }
 </style>

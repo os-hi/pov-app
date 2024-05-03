@@ -34,8 +34,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('./views/WeatherPage.vue'),
       },
       {
-        path: 'profile',
-        component: () => import('./views/ProfilePage.vue'),
+        path: 'color',
+        component: () => import('./views/ColorPage.vue'),
       },
     ],
   },

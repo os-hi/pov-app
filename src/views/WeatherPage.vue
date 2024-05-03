@@ -44,9 +44,12 @@
 
 </script>
 <template>
-  <ion-page>
+  <ion-page id="main-content">
     <ion-header>
       <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
         <ion-title>LED Globe</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -66,6 +69,9 @@
 </template>
 
 <style scoped>
+ ion-buttons{
+    color: #DD771F
+  }
   .example-content {
     padding: .2rem 1rem;
     display: flex;
