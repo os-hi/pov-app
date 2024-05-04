@@ -2,12 +2,27 @@
 <script setup lang="ts">
   import { IonApp, IonRouterOutlet } from '@ionic/vue';
   import { IonMenu, IonHeader, IonToolbar, IonContent, IonTitle } from '@ionic/vue';
-
+  import { ref } from 'vue';
+  import { onAuthStateChanged, User } from 'firebase/auth';
   import { Auth, signOut } from 'firebase/auth';
   import {  useFirebaseAuth } from "vuefire";
   import router from './router';
+  import { auth } from './database/firebase';
 
   const userLogout: Auth | null = useFirebaseAuth()
+
+  const isAuthenticated = ref(false); // Reactive variable to track authentication state
+
+  // Listen for authentication state changes
+  onAuthStateChanged(auth, (user: User | null) => {
+    isAuthenticated.value = !!user; // Update isAuthenticated based on user presence
+    if (!isAuthenticated.value) {
+      router.push('/login'); // Redirect to login page if user is not authenticated
+    }
+
+  });
+ 
+
   
   
   const handleLogout = async () => {
@@ -29,8 +44,9 @@
 </script>
 
 <template>
+  <suspense>
     <ion-app>
-      <ion-menu content-id="main-content">
+      <ion-menu v-if="isAuthenticated" content-id="main-content">
       <ion-header >
         <ion-toolbar color="dark">
           <ion-title>LED Globe</ion-title>
@@ -45,7 +61,9 @@
       <ion-router-outlet>
       </ion-router-outlet>
     </ion-app>
+  </suspense>
   </template>
+  
   <style scoped>
   .menu-content{
     display: flex;

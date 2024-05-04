@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-  import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage } from '@ionic/vue';
+  import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton } from '@ionic/vue';
   import { ref as databaseRef, set } from 'firebase/database'
   import {db} from '../database/firebase'
 

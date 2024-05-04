@@ -1,9 +1,12 @@
 <script setup lang="ts">
-  import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonTextarea  } from '@ionic/vue';
+  import {IonItem, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonTextarea, IonMenuButton, IonButtons} from '@ionic/vue';
   import { ref } from 'vue';
   import { ref as databaseRef, set } from 'firebase/database'
-  import {db} from '../database/firebase'
+  import {auth, db} from '../database/firebase'
+  import { useRouter } from 'vue-router'
+  import { onAuthStateChanged } from 'firebase/auth';
 
+  const refreshRouter = useRouter();
   // import router from '../router';
 
   // import { useCurrentUser } from 'vuefire'
@@ -17,8 +20,16 @@
   //   router.push(`/login`);
   // }
 
+
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+    const currentRoute = refreshRouter.currentRoute.value;
+    refreshRouter.push({ ...currentRoute }); // Navigates to the current route, triggering a reload
+  }
+});
+
   const text = ref('');
-  // const numbersRef = databaseRef(db, 'numbers')
 
   const customFormatter = (inputLength:number, maxLength:number) => {
     return `${maxLength - inputLength} characters remaining`;
@@ -30,16 +41,6 @@
         display: text.value
       });
     }
-
-  //   function writeUserData(userId, name, email, imageUrl) {
-  // const db = getDatabase();
-  // set(ref(db, 'users/' + userId), {
-  //   username: name,
-  //   email: email,
-  //   profile_picture : imageUrl
-  // });
-// }
-
   }
 </script>
 
@@ -63,7 +64,6 @@
           </ion-item>
           <button @click="handleSubmit">Send</button>
       </div>
-        
     </ion-content>
   </ion-page>
   
