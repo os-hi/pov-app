@@ -1,4 +1,22 @@
+{
+    "appId": "pov.com",
+    "appName": "LED Globe",
+    "bundledWebRuntime": false,
+    "webDir": "www",
+    "cordova": {},
+    "android": {
+      "path": "android",
+      "capacitorId": "pov.com",
+      "signingConfig": {
+        "keystore": "./my-release-key.keystore",
+        "storePassword": "password",
+        "alias": "my-key-alias",
+        "password": "password"
+      }
+    },
+
 "server": {
     "url": "http://192.168.1.2:3000",
     "cleartext": true
-},
+}
+}

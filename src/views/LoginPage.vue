@@ -4,8 +4,6 @@ import {
   IonPage,
   IonHeader,
   IonToolbar,
-  IonButtons,
-  IonMenuButton,
   IonContent,
   IonItem,
   IonTitle,
@@ -100,7 +98,7 @@ const handleSubmit = () => {
               <button type="submit" expand="block">Login</button>
             </ion-col>
           </ion-row>
-          <div class="account">Already have an account? <router-link to="/register">Register</router-link></div>
+          <div class="account">Don't have an account yet? <router-link to="/register">Register</router-link></div>
         </form>
         <!-- <ion-toast
           :is-open="showToast"
