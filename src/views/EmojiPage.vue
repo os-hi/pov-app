@@ -76,7 +76,7 @@
   button{
     border-radius: 1rem;
     padding: .5rem .1rem;
-    font-size: 5rem;
+    font-size: 4rem;
     background-color: transparent;
     box-shadow: gray 0px 0px 5px;
   }

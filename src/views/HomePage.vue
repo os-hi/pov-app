@@ -81,11 +81,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: 100%;
   }
   img{
-    width: 20rem;
+    width: 15rem;
   }
   .ion-text-wrap{
     width: 90%;
