@@ -1,10 +1,11 @@
+// Import necessary modules and components
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import LoginPage from './views/LoginPage.vue';
 import RegisterPage from './views/RegisterPage.vue';
 
+// Define routes
 const routes: Array<RouteRecordRaw> = [
-
   {
     path: '/',
     redirect: '/login',
@@ -43,17 +44,17 @@ const routes: Array<RouteRecordRaw> = [
     path: '/register',
     component: RegisterPage,
   },
-
   {
     path: '/:pathMatch(.*)*', 
     redirect: '/login', 
   }
 ];
 
+// Create router instance
 const router = createRouter({
-  // Use: createWebHistory(process.env.BASE_URL) in your app
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
+// Export router instance
 export default router;

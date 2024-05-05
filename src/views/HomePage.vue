@@ -1,12 +1,25 @@
 <script setup lang="ts">
   import {IonItem, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonTextarea, IonMenuButton, IonButtons} from '@ionic/vue';
-  import { ref } from 'vue';
+  import { ref,onMounted } from 'vue';
   import { ref as databaseRef, set } from 'firebase/database'
-  import {auth, db} from '../database/firebase'
-  import { useRouter } from 'vue-router'
-  import { onAuthStateChanged } from 'firebase/auth';
+  import { db} from '../database/firebase'
 
-  const refreshRouter = useRouter();
+  import router from "../router";
+import { onAuthStateChanged, User } from "firebase/auth";
+import { auth } from "../database/firebase";
+
+const isAuthenticated = ref(false); // Reactive variable to track authentication state
+
+// Listen for authentication state changes
+onMounted(() => {
+  onAuthStateChanged(auth, (user: User | null) => {
+    isAuthenticated.value = !!user; // Update isAuthenticated based on user presence
+    if (!isAuthenticated.value) {
+      router.push("/login"); // Redirect to login page if user is not authenticated
+    }
+  });
+});
+
   // import router from '../router';
 
   // import { useCurrentUser } from 'vuefire'
@@ -19,15 +32,6 @@
   //   console.log(user.value.email);
   //   router.push(`/login`);
   // }
-
-
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-    const currentRoute = refreshRouter.currentRoute.value;
-    refreshRouter.push({ ...currentRoute }); // Navigates to the current route, triggering a reload
-  }
-});
 
   const text = ref('');
 

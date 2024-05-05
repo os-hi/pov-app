@@ -44,11 +44,11 @@ const handleSubmit = () => {
   const newEmail = email.value;
   const newPass = password.value;
 
-  console.log(newEmail, newPass);
   signInWithEmailAndPassword(auth, newEmail, newPass)
     .then(() => {
       // Signed in
       router.push(`/app/text`);
+      window.location.reload();
       // ...
     })
     .catch((error) => {
