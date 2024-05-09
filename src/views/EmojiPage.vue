@@ -30,10 +30,10 @@
         <h1>Choose a shape:</h1>
         <div class="buttons">
           <button @click="handleActionClick('<+->')">
-            🖤
+            ♡
           </button>
           <button @click="handleActionClick('$#')">
-            🛆
+            △
           </button>
           <button @click="handleActionClick('^!')">
             ☐
@@ -66,8 +66,8 @@
     gap: 1rem 2rem;
   }
   button{
+    padding: .5rem 1rem;
     border-radius: 1rem;
-    padding: .5rem .1rem;
     font-size: 4rem;
     background-color: transparent;
     box-shadow: gray 0px 0px 5px;

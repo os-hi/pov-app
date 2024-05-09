@@ -14,7 +14,6 @@
 
   async function fetchWeather(userChoice: string) {
     await fetch(
-    // This endpoint doesn't work for the free version, replaced with the one below
     // `${url}/data/2.5/forecast/daily?q=${city}&units=imperial&cnt=16&appid=${key}`,
     `${url}/data/2.5/weather?q=${city}&units=metric&cnt=40&appid=${key}`,
     )
