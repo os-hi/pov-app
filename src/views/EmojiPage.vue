@@ -27,26 +27,18 @@
     <ion-content color="dark">
       <div class="example-content">
         <img src="../assets/emoji.webp" alt="emoji">
-        <h1>Choose an emoji:</h1>
+        <h1>Choose a shape:</h1>
         <div class="buttons">
-          <button @click="handleActionClick('❤️')">
-            ❤️
+          <button @click="handleActionClick('<+->')">
+            🖤
           </button>
-          <button @click="handleActionClick('😆')">
-            😆
+          <button @click="handleActionClick('$#')">
+            🛆
           </button>
-          <button @click="handleActionClick('😮')">
-            😮
+          <button @click="handleActionClick('^!')">
+            ☐
           </button>
-          <button @click="handleActionClick('😥')">
-            😥
-          </button>
-          <button @click="handleActionClick('😠')">
-            😠
-          </button>
-          <button @click="handleActionClick('👍')">
-            👍
-          </button>
+       
         </div>
         
       </div>

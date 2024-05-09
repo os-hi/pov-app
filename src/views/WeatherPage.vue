@@ -26,7 +26,7 @@
 
       if(userChoice == "temp") {
         set(databaseRef(db, 'devices/' + "device1"), {
-        display: temperature.value + ' °C'
+        display: temperature.value + ' *C'
       })}else{
         set(databaseRef(db, 'devices/' + "device1"), {
         display: humidity.value + ' %'

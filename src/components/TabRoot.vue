@@ -14,7 +14,7 @@ import {
   IonTitle,
 } from "@ionic/vue";
 
-import { calendar, cloud, chatbox, happy, colorPalette } from "ionicons/icons";
+import { calendar, cloud, chatbox, colorPalette, shapes } from "ionicons/icons";
 import router from "../router";
 import { ref, onMounted } from "vue";
 import { onAuthStateChanged, User } from "firebase/auth";
@@ -77,8 +77,8 @@ const handleLogout = async () => {
         </ion-tab-button>
 
         <ion-tab-button tab="emoji" href="/app/emoji">
-          <ion-icon :icon="happy" />
-          <ion-label>Emoji</ion-label>
+          <ion-icon :icon="shapes" />
+          <ion-label>Shape</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="date" href="/app/date">

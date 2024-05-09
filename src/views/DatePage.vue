@@ -7,7 +7,7 @@
     const now = new Date()
     let submit = ""
     if(data == "Date"){
-      submit = now.getMonth() + "/" + now.getDate() + "/" + now.getFullYear()
+      submit = (now.getMonth() + 1)+ "/" + now.getUTCDate() + "/" + now.getFullYear()
     }else{
       submit = now.getHours() + ":" + now.getMinutes()
     }

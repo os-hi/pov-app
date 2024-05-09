@@ -42,7 +42,7 @@ onMounted(() => {
   const handleSubmit = () => {
     if(text.value != ""){
       set(databaseRef(db, 'devices/' + "device1"), {
-        display: text.value
+        display: text.value.toUpperCase()
       });
     }
   }
