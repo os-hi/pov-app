@@ -3,7 +3,9 @@
   import {ref} from 'vue'
   import { ref as databaseRef, set } from 'firebase/database'
   import {db} from '../database/firebase'
+  import { useRouter } from 'vue-router';
 
+  const router = useRouter();
 
   const temperature = ref('')
   const humidity = ref('')
@@ -26,11 +28,13 @@
       if(userChoice == "temp") {
         set(databaseRef(db, 'devices/' + "device1"), {
         display: temperature.value + ' *C'
-      })}else{
+      })
+    }else{
         set(databaseRef(db, 'devices/' + "device1"), {
         display: humidity.value + ' %'
         })
       }
+    router.push('/app/color');
     })
     .catch(() => {
       temperature.value = '';

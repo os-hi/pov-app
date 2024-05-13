@@ -3,10 +3,12 @@
   import { ref,onMounted } from 'vue';
   import { ref as databaseRef, set } from 'firebase/database'
   import { db} from '../database/firebase'
+  import { onAuthStateChanged, User } from "firebase/auth";
+  import { auth } from "../database/firebase";
+  import { useRouter } from 'vue-router';
 
-  import router from "../router";
-import { onAuthStateChanged, User } from "firebase/auth";
-import { auth } from "../database/firebase";
+  const router = useRouter();
+
 
 const isAuthenticated = ref(false); // Reactive variable to track authentication state
 
@@ -40,12 +42,21 @@ onMounted(() => {
   }
 
   const handleSubmit = () => {
-    if(text.value != ""){
-      set(databaseRef(db, 'devices/' + "device1"), {
-        display: text.value.toUpperCase()
-      });
+  if (text.value.trim() !== "") { // Check if text is not empty
+    set(databaseRef(db, 'devices/device1'), {
+      display: text.value.toUpperCase()
+    });
+    console.log("Text sent:", text.value); // Log the text being sent
+    try {
+      router.push('/app/color'); // Ensure router is imported and used correctly
+      console.log("Redirecting to /app/color...");
+    } catch (error) {
+      console.error("Error redirecting to /app/color:", error); // Log any errors that occur during routing
     }
+  } else {
+    console.error("Text is empty!"); // Log error if text is empty
   }
+};
 </script>
 
 
@@ -62,9 +73,16 @@ onMounted(() => {
     </ion-header>
     <ion-content color="dark">
       <div class="text-container">
-        <img src="../assets/message.webp" alt="message">
           <ion-item class="ion-text-wrap" color="dark">
-              <ion-textarea class="textarea" label="what's on your mind" :counter="true" :maxlength="10" :counter-formatter="customFormatter" label-placement="floating" fill="outline" placeholder="Type something here" v-model="text"></ion-textarea>
+              <ion-textarea 
+                class="textarea" 
+                label="what's on your mind" 
+                :counter="true" :maxlength="10" 
+                :counter-formatter="customFormatter" 
+                label-placement="floating" fill="outline" 
+                placeholder="Type something here" 
+                v-model="text">
+              </ion-textarea>
           </ion-item>
           <button @click="handleSubmit">Send</button>
       </div>
@@ -86,6 +104,7 @@ onMounted(() => {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    padding-top: 3rem;
     height: 100%;
   }
   img{

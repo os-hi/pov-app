@@ -2,7 +2,9 @@
   import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton } from '@ionic/vue';
   import { ref as databaseRef, set } from 'firebase/database'
   import {db} from '../database/firebase'
+  import { useRouter } from 'vue-router';
 
+  const router = useRouter();
   const handleActionClick = (data:string) => {
     const now = new Date()
     let submit = ""
@@ -14,6 +16,7 @@
     set(databaseRef(db, 'devices/' + "device1"), {
         display: submit
     });
+    router.push('/app/color');
     console.log(submit)
   }
 </script>

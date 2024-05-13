@@ -3,14 +3,16 @@
   import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton } from '@ionic/vue';
   import { ref as databaseRef, set } from 'firebase/database'
   import {db} from '../database/firebase'
+  import { useRouter } from 'vue-router';
 
-
+  const router = useRouter();
 
   const handleActionClick = (emoji: string) => {
-
   set(databaseRef(db, 'devices/' + "device1"), {
       display: emoji
   });
+  router.push('/app/color');
+  console.log(emoji);
 }
 
 </script>
