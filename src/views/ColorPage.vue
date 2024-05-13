@@ -34,7 +34,9 @@ import { ref } from 'vue';
     <ion-content color="dark">
      <div class="container">
       <img src="../assets/color.png" alt="color">
-      <h1>Choose a color:</h1>
+      <div class="heading-wrapper">
+          <h1>Choose a color:</h1>
+      </div>
       <div class="buttons">
           <button class="red" :class="{ selected: selectedColor === '#FF0000' }" @click="handleActionClick('#FF0000')"></button>
           <button class="green" :class="{ selected: selectedColor === '#00FF00' }" @click="handleActionClick('#00FF00')"></button>
@@ -58,6 +60,18 @@ import { ref } from 'vue';
   img {
     width: 200px;
     height: 300px;
+  }
+  .heading-wrapper {
+    background-color: #333; /* Background color for the heading */
+    padding: 1rem; /* Add some padding for spacing */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    text-align: center; /* Center align the text */
+    box-shadow: 0 0 10px #FFA500; /* Add a glow effect using box-shadow */
+    animation: glowHead .5s infinite alternate; /* Apply glow animation */
+  }
+  h1 {
+    color: white; /* Set text color to white */
+    margin: 0; /* Remove default margin */
   }
   .red {
     background-color: #FF0000;
@@ -134,6 +148,14 @@ import { ref } from 'vue';
     }
     to {
       box-shadow: 0 0 20px var(--glow-color); /* Use a CSS variable for glow color and size */
+    }
+  }
+  @keyframes glowHead {
+    from {
+      box-shadow: 0 0 10px #FFA500; /* Start glow effect */
+    }
+    to {
+      box-shadow: 0 0 20px #FFA500; /* End glow effect */
     }
   }
 </style>
